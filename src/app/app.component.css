@@ -1,0 +1,14 @@
+/* Layout container for the form and table */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Space between form and table */
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 800px; /* Limit the width of the main container */
+    margin: 0 auto; /* Center the container on larger screens */
+  }
+}

@@ -1,0 +1,50 @@
+<div class="form-container">
+  <h1>Welcome to Student Portal</h1>
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Student Name</mat-label>
+      <input matInput formControlName="name" required />
+      <!-- Error message for name field -->
+      <mat-error *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+        Name is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Gender -->
+    <mat-form-field>
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+        <mat-option value="other">Other</mat-option>
+      </mat-select>
+      <!-- Error message for gender field -->
+      <mat-error *ngIf="studentForm.get('gender')?.invalid && studentForm.get('gender')?.touched">
+        Gender is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Grade -->
+    <mat-radio-group formControlName="grade">
+      <label>Grade:</label>
+      <mat-radio-button value="A">A</mat-radio-button>
+      <mat-radio-button value="B">B</mat-radio-button>
+      <mat-radio-button value="C">C</mat-radio-button>
+    </mat-radio-group>
+    <!-- Error message for grade field -->
+    <mat-error *ngIf="studentForm.get('grade')?.invalid && studentForm.get('grade')?.touched">
+      Grade is required.
+    </mat-error>
+
+    <!-- Enrolled Checkbox -->
+    <mat-checkbox formControlName="isEnrolled">Enrolled</mat-checkbox>
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+
+  <!-- Form Error Message -->
+  <div *ngIf="this.displayError" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

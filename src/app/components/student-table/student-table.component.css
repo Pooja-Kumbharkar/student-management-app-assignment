@@ -1,0 +1,41 @@
+/* Style the table container */
+.table-container {
+  margin: 16px auto;
+  max-width: 100%; /* Allow the table to adapt to the container */
+  overflow-x: auto; /* Add horizontal scroll for small screens */
+}
+.add-entry{
+  display: flex;          
+  justify-content: flex-end; 
+  padding: 16px;  
+
+}
+table {
+  width: 100%; /* Use full width of the container */
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 16px;
+}
+
+th {
+  background-color: #f5f5f5; /* Light background for table headers */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+.actions {
+  display: flex;
+  gap: 8px; /* Space between action buttons */
+}
+
+@media (max-width: 768px) {
+  th, td {
+    padding: 8px; /* Reduce padding on smaller screens */
+  }
+}
