@@ -26,8 +26,8 @@ import { StudentService } from '../../services/student.service';
 })
 export class StudentFormComponent {
   studentForm: FormGroup;
-  displayError: boolean= false;
-  errorMessage: string = ''; 
+  displayError: boolean = false;
+  errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +37,7 @@ export class StudentFormComponent {
     // Initialize the form with validation rules
     this.studentForm = this.fb.group({
       name: ['', Validators.required], // Name is required
+      email: ['', [Validators.required, Validators.email]], // Email validation
       gender: ['', Validators.required], // Gender is required
       grade: ['', Validators.required], // Grade is required
       isEnrolled: [false], // Checkbox doesn't need validation
@@ -51,7 +52,7 @@ export class StudentFormComponent {
     } else {
       // If the form is invalid, display an error message
       this.displayError = true;
-      this.errorMessage = 'Please fill out all fields before submitting the form.';
+      this.errorMessage = 'Please fill out all fields correctly before submitting the form.';
     }
   }
 }

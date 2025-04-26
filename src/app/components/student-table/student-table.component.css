@@ -1,8 +1,11 @@
 /* Style the table container */
 .table-container {
   margin: 16px auto;
-  max-width: 100%; /* Allow the table to adapt to the container */
-  overflow-x: auto; /* Add horizontal scroll for small screens */
+  padding: 16px;
+  max-width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 .add-entry{
   display: flex;          
@@ -11,14 +14,15 @@
 
 }
 table {
-  width: 100%; /* Use full width of the container */
-  border-spacing: 0;
+  width: 100%;
   border-collapse: collapse;
+  border: 1px solid #ddd;
 }
 
 th, td {
   text-align: left;
-  padding: 8px 16px;
+  padding: 12px;
+  border: 1px solid #ddd;
 }
 
 th {

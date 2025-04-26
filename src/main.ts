@@ -5,6 +5,6 @@ import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent,  {
   providers: [
-    provideRouter(routes), // Use routes from app.routes.ts
+    provideRouter(routes),
   ],
 });

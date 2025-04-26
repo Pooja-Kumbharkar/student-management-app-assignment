@@ -1,41 +1,52 @@
-<div class="add-entry">
-  <button mat-raised-button color="primary" (click)="goToStudentForm()">
-    Add Entry
-  </button>
+<div class="table-container">
+  <!-- Add Entry Button -->
+  <div class="add-entry">
+    <button mat-raised-button color="primary" (click)="goToStudentForm()">
+      Add Entry
+    </button>
+  </div>
+
+  <!-- Table -->
+  <table mat-table [dataSource]="students" class="mat-elevation-z8">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let student">{{ student.name }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let student">{{ student.email }}</td>
+    </ng-container>
+
+    <!-- Gender Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Gender</th>
+      <td mat-cell *matCellDef="let student">{{ student.gender }}</td>
+    </ng-container>
+
+    <!-- Grade Column -->
+    <ng-container matColumnDef="grade">
+      <th mat-header-cell *matHeaderCellDef>Grade</th>
+      <td mat-cell *matCellDef="let student">{{ student.grade }}</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let student">
+        <button mat-icon-button color="primary" (click)="editStudent(student)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteStudent(student)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Table Header and Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>
-<table mat-table [dataSource]="students" class="mat-elevation-z8">
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let student">{{ student.name }}</td>
-  </ng-container>
-
-  <!-- Gender Column -->
-  <ng-container matColumnDef="gender">
-    <th mat-header-cell *matHeaderCellDef>Gender</th>
-    <td mat-cell *matCellDef="let student">{{ student.gender }}</td>
-  </ng-container>
-
-  <!-- Grade Column -->
-  <ng-container matColumnDef="grade">
-    <th mat-header-cell *matHeaderCellDef>Grade</th>
-    <td mat-cell *matCellDef="let student">{{ student.grade }}</td>
-  </ng-container>
-
-  <!-- Actions Column -->
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let student">
-      <button mat-icon-button color="primary" (click)="editStudent(student)">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button color="warn" (click)="deleteStudent(student)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <!-- Table Header and Rows -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>

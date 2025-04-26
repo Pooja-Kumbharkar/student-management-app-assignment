@@ -1,16 +1,25 @@
 <div class="form-container">
   <h1>Welcome to Student Portal</h1>
   <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
     <mat-form-field>
       <mat-label>Student Name</mat-label>
       <input matInput formControlName="name" required />
-      <!-- Error message for name field -->
       <mat-error *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
         Name is required.
       </mat-error>
     </mat-form-field>
 
-    <!-- Gender -->
+    <!-- Email Field -->
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+      <mat-error *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched">
+        Please enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Gender Field -->
     <mat-form-field>
       <mat-label>Gender</mat-label>
       <mat-select formControlName="gender">
@@ -18,7 +27,6 @@
         <mat-option value="female">Female</mat-option>
         <mat-option value="other">Other</mat-option>
       </mat-select>
-      <!-- Error message for gender field -->
       <mat-error *ngIf="studentForm.get('gender')?.invalid && studentForm.get('gender')?.touched">
         Gender is required.
       </mat-error>
@@ -31,7 +39,6 @@
       <mat-radio-button value="B">B</mat-radio-button>
       <mat-radio-button value="C">C</mat-radio-button>
     </mat-radio-group>
-    <!-- Error message for grade field -->
     <mat-error *ngIf="studentForm.get('grade')?.invalid && studentForm.get('grade')?.touched">
       Grade is required.
     </mat-error>

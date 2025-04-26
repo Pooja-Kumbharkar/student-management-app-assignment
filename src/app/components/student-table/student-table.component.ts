@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { StudentService } from '../../services/student.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-student-table',
   standalone: true,
@@ -13,7 +14,8 @@ import { Router } from '@angular/router';
 })
 export class StudentTableComponent implements OnInit {
   students: any[] = [];
-  displayedColumns: string[] = ['name', 'gender', 'grade', 'actions'];
+  // Ensure the displayedColumns array matches your column definitions in the HTML
+  displayedColumns: string[] = ['name', 'email', 'gender', 'grade', 'actions'];
 
   constructor(private studentService: StudentService, private router: Router) {}
 
@@ -29,7 +31,7 @@ export class StudentTableComponent implements OnInit {
     if (updatedName && updatedGrade) {
       this.studentService.updateStudent(student.id, {
         name: updatedName,
-        grade: updatedGrade
+        grade: updatedGrade,
       });
       this.students = [...this.students]; // Refresh the table by creating a new reference
     }
@@ -42,9 +44,8 @@ export class StudentTableComponent implements OnInit {
     }
   }
 
-    goToStudentForm() {
+  goToStudentForm() {
     // Navigate to the StudentFormComponent
     this.router.navigate(['/student-form']);
   }
-
 }
