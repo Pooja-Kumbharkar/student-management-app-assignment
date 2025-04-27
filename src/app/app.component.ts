@@ -11,10 +11,4 @@ import { StudentTableComponent } from './components/student-table/student-table.
 })
 export class AppComponent {
   title = 'student-management-app';
-  // students: any[] = [];
-
-  // addStudent(student: any) {
-  //   console.log("Add student")
-  //   this.students.push(student);
-  // }
 }
