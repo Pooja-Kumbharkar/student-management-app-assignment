@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 })
 export class StudentTableComponent implements OnInit {
   students: any[] = [];
-  // Ensure the displayedColumns array matches your column definitions in the HTML
   displayedColumns: string[] = ['name', 'email', 'gender', 'grade', 'actions'];
 
   constructor(private studentService: StudentService, private router: Router) {}
